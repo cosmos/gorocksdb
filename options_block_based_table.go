@@ -180,7 +180,8 @@ func (opts *BlockBasedTableOptions) SetBlockCache(cache *Cache) {
 // Default: nil
 func (opts *BlockBasedTableOptions) SetBlockCacheCompressed(cache *Cache) {
 	opts.compCache = cache
-	C.rocksdb_block_based_options_set_block_cache_compressed(opts.c, cache.c)
+	// Not supported in rocksdb 7+
+	// C.rocksdb_block_based_options_set_block_cache_compressed(opts.c, cache.c)
 }
 
 // SetWholeKeyFiltering specify if whole keys in the filter (not just prefixes)
